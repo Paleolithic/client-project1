@@ -5,6 +5,7 @@
 	<link href="assets/stylesheets/normalize.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="assets/stylesheets/skeleton.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="assets/stylesheets/layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<div class="container">
@@ -15,17 +16,11 @@
 	       		<option value="men">Men</option>
 	       		<option value="women">Women</option>
 	       	</select>
-	       	<input type="button" id="lib-button" value="Choose Sex" onclick="libit();"/>
-
-	       	<label for="selectSex">Your Interest</label>
-	       	<select id="selectSex">
-	       		<option value="men">Men</option>
-	       		<option value="women">Women</option>
-	       	</select>
-	       	<input type="button" id="lib-button" value="Choose Interest" onclick="libit();"/>
+	       	<input type="button" id="selectSexButton" value="Choose Sex"/>
 
 	       	<input type="reset"/>
 	    </form>
 	</div>
+	<script src="assets/scripts/clickHandler.js"></script>
 </body>
 </html>
