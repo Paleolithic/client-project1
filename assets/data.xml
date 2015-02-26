@@ -1,0 +1,34 @@
+<sex>
+	<option text="male">
+		<facial_hair>
+			<option text="hair">
+				<complexion>
+					<option text="dark"></option>
+					<option text="light"></option>
+				</complexion>
+			</option>
+			<option text="no_hair">
+				<build>
+					<option text="dark"></option>
+					<option text="light"></option>
+				</build>
+			</option>
+		</facial_hair>
+	</option>
+	<option text="female">
+		<hair_color>
+			<option text="blonde">
+				<height>
+					<option text="tall"></option>
+					<option text="short"></option>
+				</height>
+			</option>
+			<option text="brunette">
+				<eye_color>
+					<option text="brown"></option>
+					<option text="blue"></option>
+				</eye_color>
+			</option>
+		</hair_color>
+	</option>
+</sex>
