@@ -11,14 +11,14 @@
 	<div class="container">
 		<h1 class="twelve columns">Find A Date</h1>
 		<form class="twelve columns" id="dateform" enctype="text/plain">
-	       	<label for="selectSex">Your Interest</label>
-	       	<select id="selectSex">
-	       		<option value="men">Men</option>
-	       		<option value="women">Women</option>
-	       	</select>
-	       	<input type="button" id="selectSexButton" value="Choose Sex"/>
-
-	       	
+	       	<div id="sex">
+		       	<label for="select_sex">Your Interest</label>
+		       	<select id="select_sex">
+		       		<option value="men">Men</option>
+		       		<option value="women">Women</option>
+		       	</select>
+		       	<input type="button" onclick="createNextOptions(this.parentNode.id);" value="Choose Sex"/>
+	        </div>
 	    </form>
 	</div>
 	<script src="assets/scripts/clickHandler.js"></script>
