@@ -6,3 +6,8 @@ h1 {
   padding-bottom: 7px;
   border-bottom: 3px solid #222222;
 }
+
+/* line 9, ../sass/layout.scss */
+select {
+  margin-right: 7px;
+}

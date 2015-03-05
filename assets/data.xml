@@ -1,32 +1,208 @@
-<select text="sex">
-	<option text="men">
-		<select text="facial_hair">
-			<option text="hair">
-				<select text="complexion">
-					<option text="dark"></option>
-					<option text="light"></option>
+<select id="class" text="class">
+	<option text="commando">
+		<select id="commando-tree-skill" text="commando-tree-skill">
+			<option text="guerilla">
+				<select id="guerilla-first-skill" text="guerilla-first-skill">
+					<option text="sentry">
+						<select id="sentry-second-skill" text="sentry-second-skill">
+							<option text="laser-sight"></option>
+							<option text="onslaught"></option>
+						</select>
+					</option>
+					<option text="ready">
+						<select id="ready-second-skill" text="ready-second-skill">
+							<option text="willing"></option>
+							<option text="able"></option>
+						</select>
+					</option>
 				</select>
 			</option>
-			<option text="no_hair">
-				<select text="build">
-					<option text="dark"></option>
-					<option text="light"></option>
+			<option text="gunpowder">
+				<select id="gunpowder-first-skill" text="gunpowder-first-skill">
+					<option text="impact">
+						<select id="impact-second-skill" text="impact-second-skill">
+							<option text="overload"></option>
+							<option text="steady"></option>
+						</select>
+					</option>
+					<option text="expertise">
+						<select id="expertise-second-skill" text="expertise-second-skill">
+							<option text="metal-storm"></option>
+							<option text="battlefront"></option>
+						</select>
+					</option>
+				</select>
+			</option>
+			<option text="survival">
+				<select id="survival-first-skill" text="survival-first-skill">
+					<option text="healthy">
+						<select id="healthy-second-skill" text="healthy-second-skill">
+							<option text="last-ditch-effort"></option>
+							<option text="forbearance"></option>
+						</select>
+					</option>
+					<option text="preparation">
+						<select id="preparation-second-skill" text="preparation-second-skill">
+							<option text="pressure"></option>
+							<option text="quick-charge"></option>
+						</select>
+					</option>
 				</select>
 			</option>
 		</select>
 	</option>
-	<option text="women">
-		<select text="hair_color">
-			<option text="blonde">
-				<select text="height">
-					<option text="tall"></option>
-					<option text="short"></option>
+	<option text="siren">
+		<select id="siren-tree-skill" text="siren-tree-skill">
+			<option text="motion">
+				<select id="motion-first-skill" text="motion-first-skill">
+					<option text="ward">
+						<select id="ward-second-skill" text="ward-second-skill">
+							<option text="suspension"></option>
+							<option text="fleet"></option>
+						</select>
+					</option>
+					<option text="accelerate">
+						<select id="accelerate-second-skill" text="accelerate-second-skill">
+							<option text="kinetic-reflection"></option>
+							<option text="inertia"></option>
+						</select>
+					</option>
+				</select>				
+			</option>
+			<option text="harmony">
+				<select id="harmony-first-skill" text="harmony-first-skill">
+					<option text="minds eye">
+						<select id="minds-eye-second-skill" text="minds eye-second-skill">
+							<option text="restoration"></option>
+							<option text="elated"></option>
+						</select>
+					</option>
+					<option text="sweet release">
+						<select id="sweet-release-second-skill" text="sweet release-second-skill">
+							<option text="wreck"></option>
+							<option text="recompense"></option>
+						</select>
+					</option>
+				</select>					
+			</option>
+			<option text="cataclysm">
+				<select id="cataclysm-first-skill" text="cataclysm-first-skill">
+					<option text="flicker">
+						<select id="flicker-second-skill" text="flicker-second-skill">
+							<option text="immolate"></option>
+							<option text="chain-reaction"></option>
+						</select>
+					</option>
+					<option text="foresight">
+						<select id="foresight-second-skill" text="foresight-second-skill">
+							<option text="helios"></option>
+							<option text="backdraft"></option>
+						</select>
+					</option>
+				</select>					
+			</option>
+		</select>
+	</option>
+	<option text="gunzerker">
+		<select id="gunzerker-tree-skill" text="gunzerker-tree-skill">
+			<option text="gunlust">
+				<select id="gunlust-first-skill" text="gunlust-first-skill">
+					<option text="locked-and-loaded">
+						<select id="locked-and-loaded-second-skill" text="locked-and-loaded-second-skill">
+							<option text="im-your-huckleberry"></option>
+							<option text="divergent-likeness"></option>
+						</select>
+					</option>
+					<option text="quick-draw">
+						<select id="quick-draw-second-skill" text="quick-draw-second-skill">
+							<option text="all-i-need-is-one"></option>
+							<option text="money-shot"></option>
+						</select>
+					</option>
 				</select>
 			</option>
-			<option text="brunette">
-				<select text="eye_color">
-					<option text="brown"></option>
-					<option text="blue"></option>
+			<option text="rampage">
+				<select id="rampage-first-skill" text="rampage-first-skill">
+					<option text="inconceivable">
+						<select id="inconceivable-second-skill" text="inconceivable-second-skill">
+							<option text="all-in-the-reflexes"></option>
+							<option text="im-ready-already"></option>
+						</select>
+					</option>
+					<option text="filled-to-the-brim">
+						<select id="filled-to-the-brim-second-skill" text="filled-to-the-brim-second-skill">
+							<option text="last-longer"></option>
+							<option text="5-shots-or-6"></option>
+						</select>
+					</option>
+				</select>
+			</option>
+			<option text="brawn">
+				<select id="brawn-first-skill" text="brawn-first-skill">
+					<option text="hard-to-kill">
+						<select id="hard-to-kill-second-skill" text="hard-to-kill-second-skill">
+							<option text="asbestos"></option>
+							<option text="aint-got-time-to-bleed"></option>
+						</select>
+					</option>
+					<option text="incite">
+						<select id="incite-second-skill" text="incite-second-skill">
+							<option text="im-the-juggernaut"></option>
+							<option text="out-of-bubblegum"></option>
+						</select>
+					</option>
+				</select>
+			</option>
+		</select>
+	</option>
+	<option text="assassin">
+		<select id="assassin-tree-skill" text="assassin-tree-skill">
+			<option text="sniping">
+				<select id="sniping-first-skill" text="sniping-first-skill">
+					<option text="headshot">
+						<select id="headshot-second-skill" text="headshot-second-skill">
+							<option text="killer"></option>
+							<option text="one-shot-to-kill"></option>
+						</select>
+					</option>
+					<option text="optics">
+						<select id="optics-second-skill" text="optics-second-skill">
+							<option text="precision"></option>
+							<option text="velocity"></option>
+						</select>
+					</option>
+				</select>
+			</option>
+			<option text="cunning">
+				<select id="cunning-first-skill" text="cunning-first-skill">
+					<option text="fast-hands">
+						<select id="fast-hands-second-skill" text="fast-hands-second-skill">
+							<option text="fearless"></option>
+							<option text="rising-shot"></option>
+						</select>
+					</option>
+					<option text="counter-strike">
+						<select id="counter-strike-second-skill" text="counter-strike-second-skill">
+							<option text="ambush"></option>
+							<option text="unforseen"></option>
+						</select>
+					</option>
+				</select>
+			</option>
+			<option text="bloodshed">
+				<select id="bloodshed-first-skill" text="bloodshed-first-skill">
+					<option text="killing-blow">
+						<select id="killing-blow-second-skill" text="killing-blow-second-skill">
+							<option text="grim"></option>
+							<option text="followthrough"></option>
+						</select>
+					</option>
+					<option text="iron-hand">
+						<select id="iron-hand-second-skill" text="iron-hand-second-skill">
+							<option text="be-like-water"></option>
+							<option text="backstab"></option>
+						</select>
+					</option>
 				</select>
 			</option>
 		</select>
