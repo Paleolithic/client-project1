@@ -7,7 +7,28 @@ h1 {
   border-bottom: 3px solid #222222;
 }
 
-/* line 9, ../sass/layout.scss */
-select {
-  margin-right: 7px;
+/* line 13, ../sass/layout.scss */
+select, option, input[type="button"] {
+  display: block;
+  width: 100%;
+}
+
+/* line 19, ../sass/layout.scss */
+.images {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: 21px;
+}
+
+/* line 25, ../sass/layout.scss */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 35, ../sass/layout.scss */
+.select-wrapper {
+  margin-bottom: 30px;
 }

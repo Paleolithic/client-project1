@@ -7,5 +7,32 @@ h1{
 }
 
 select{
-	margin-right: 7px;
+	// margin-right: 7px;
 }
+
+select, option, input[type="button"]{
+	display: block;
+	width: 100%;
+}
+
+
+.images{
+	position: relative;
+	min-height: 300px;
+	margin-bottom: 21px;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	&:first-child{
+		// position: absolute;
+	}
+}
+
+.select-wrapper{
+	margin-bottom: 30px;
+}
+

@@ -71,13 +71,13 @@
 			</option>
 			<option text="harmony">
 				<select id="harmony-first-skill" text="harmony-first-skill">
-					<option text="minds eye">
+					<option text="minds-eye">
 						<select id="minds-eye-second-skill" text="minds eye-second-skill">
 							<option text="restoration"></option>
 							<option text="elated"></option>
 						</select>
 					</option>
-					<option text="sweet release">
+					<option text="sweet-release">
 						<select id="sweet-release-second-skill" text="sweet release-second-skill">
 							<option text="wreck"></option>
 							<option text="recompense"></option>

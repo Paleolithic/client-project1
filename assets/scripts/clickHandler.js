@@ -60,8 +60,8 @@ function createNextOptions(thisCategory, options, selection){
 	//Creates new elements based on function parameters
 	var newDiv 	  = document.createElement("div");
 	newDiv.setAttribute("id", thisCategory);
+	newDiv.setAttribute("class", "select-wrapper");
 
-	var newImg = document.createElement("img");
 	// if(selection != null){	newImg.setAttribute("src", "assets/images/" + selection + ".png"); }
 
 	var newLabel  = document.createElement("label");
@@ -82,29 +82,27 @@ function createNextOptions(thisCategory, options, selection){
 	newInput.type = "button";
 	newInput.value = "Choose " + toTitleCase(thisCategory);
 
+
 	// Add elements to DOM
-	newDiv.appendChild(newImg);
+	// newDiv.appendChild(newImg);
 	newDiv.appendChild(newLabel);
 	newDiv.appendChild(newSelect);
 	newDiv.appendChild(newInput);
 	dateForm.appendChild(newDiv);
 
-	newSelect.addEventListener('click', function(){
+	var newImg = document.createElement("img");
+	newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
+	imgDiv = document.getElementById("images");
+	imgDiv.appendChild(newImg);
+
+	newSelect.addEventListener('change', function(){
 		newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
 	}, false);
-
 
 	//Input on click listener
 	newInput.addEventListener('click', function(){
 		newInput.setAttribute("disabled", true);
-		// Find appropriate select in the XML document
-		// var selectLength = xmlDoc.getElementsByTagName("select").length;
-		// var thisXMLObj;
-		// for(var i = 0; i < selectLength; i++){
-		// 	if(xmlDoc.getElementsByTagName("select")[i].getAttribute("text") == thisCategory){
-		// 		thisXMLObj = xmlDoc.getElementsByTagName("select")[i];
-		// 	}
-		// }
+		newSelect.setAttribute("disabled", true);
 
 		thisXMLObj = xmlDoc.getElementById(thisCategory);
 		
