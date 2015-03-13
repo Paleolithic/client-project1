@@ -4,7 +4,6 @@ var xmlDoc = handleHttpResponse();
 var dateForm = document.getElementById("dateform");
 createNextOptions("class", [ "commando", "siren", "gunzerker", "assassin" ]);
 
-
 ///////// Create and get an http object (ajax)
 function getHTTPObject() {
 	var xmlhttp;
@@ -60,7 +59,7 @@ function createNextOptions(thisCategory, options, selection){
 	//Creates new elements based on function parameters
 	var newDiv 	  = document.createElement("div");
 	newDiv.setAttribute("id", thisCategory);
-	newDiv.setAttribute("class", "select-wrapper");
+	newDiv.setAttribute("class", "select-wrapper three columns");
 
 	// if(selection != null){	newImg.setAttribute("src", "assets/images/" + selection + ".png"); }
 
@@ -81,6 +80,7 @@ function createNextOptions(thisCategory, options, selection){
 	var newInput = document.createElement("input");
 	newInput.type = "button";
 	newInput.value = "Choose " + toTitleCase(thisCategory);
+	newInput.setAttribute("class", "button-primary");
 
 
 	// Add elements to DOM
@@ -118,7 +118,7 @@ function createNextOptions(thisCategory, options, selection){
 				if(thisXMLObj.children[i].children.length > 0){
 					console.log("Inside if");
 					nextXMLObj = thisXMLObj.children[i].children[0];
-					nextCategory = nextXMLObj.getAttribute("text");
+					nextCategory = nextXMLObj.getAttribute("id");
 					// console.log(nextXMLObj)
 				}
 				else{
@@ -137,4 +137,14 @@ function createNextOptions(thisCategory, options, selection){
 			createNextOptions(nextCategory, nextOptions, selection);			
 		}
 	}, false); 
+}
+
+window.onload = function(){
+	var imagesHolder = document.getElementById("images");
+	imagesHolder.style.height = imagesHolder.children[0].height + "px";
+}
+
+window.onresize = function(){
+	var imagesHolder = document.getElementById("images");
+	imagesHolder.style.height = imagesHolder.children[0].height + "px";
 }
