@@ -114,11 +114,6 @@ function createNextOptions(thisCategory, options, selection){
 	// Grab existing images div element
 	var imgDiv = document.getElementById("images");
 
-	// var newImgHoverDiv = document.createElement("div");
-	// newImgHoverDiv.setAttribute("class", "image-hover");
-	// newImgHoverDiv.width = "100px";
-	// newImgHoverDiv.height = "100px";
-
 
 	// Adds newly created elements to appropriate place in DOM
 	newDiv.appendChild(newLabel);
@@ -127,8 +122,6 @@ function createNextOptions(thisCategory, options, selection){
 	rowDiv.appendChild(newDiv);
 	newImgDiv.appendChild(newImg);
 	imgDiv.appendChild(newImgDiv);
-	// imgDiv.appendChild(newImgHoverDiv);
-
 
 	// Change event listener for select element
 	newSelect.addEventListener('change', function(){
@@ -136,10 +129,15 @@ function createNextOptions(thisCategory, options, selection){
 		newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
 	}, false);
 
+
 	// On click listener for input element
 	newInput.addEventListener('click', function(){
 
-		//Sets attributes of the select and input button to disabled so they cannot be changed
+		// localStorage set
+		localStorage.setItem(thisCategory, newSelect.options[newSelect.selectedIndex].value );
+		myStorage_handler();
+
+		// Sets attributes of the select and input button to disabled so they cannot be changed
 		newInput.setAttribute("disabled", true);
 		newSelect.setAttribute("disabled", true);
 
@@ -201,11 +199,11 @@ function createNextOptions(thisCategory, options, selection){
 		}
 	}, false); 
 
+
 	newImg.addEventListener('mouseover', function(){
 		console.log("You are now hovering!");
 		newImgDiv.classList.toggle("hover");
 	}, false);
-
 }
 
 // On successful window load, run function
@@ -247,6 +245,9 @@ window.onload = function(){
 		console.log(imgDiv.children);
 		imgDiv.children[0].children[0].setAttribute("src", "assets/images/" + firstOption + ".png");
 	}, false);
+
+
+	// window.addEventListener('storage', myStorage_handler, false);
 }
 
 window.onresize = function(){
@@ -256,4 +257,10 @@ window.onresize = function(){
 
 	// Set height of images holder div to the height of its first child, which will be the tallest
 	imagesHolder.style.height = imagesHolder.children[0].children[0].height + "px";
+}
+
+
+function myStorage_handler(){
+
+	console.log(localStorage);
 }
