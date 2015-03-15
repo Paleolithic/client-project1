@@ -1,4 +1,4 @@
-<select id="class" text="class">
+<select id="skill-class" text="skill-class">
 	<option text="commando">
 		<select id="commando-tree-skill" text="commando-tree-skill">
 			<option text="guerilla">

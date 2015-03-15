@@ -16,42 +16,57 @@ h1 {
   border-bottom: 7px solid white;
 }
 
-/* line 30, ../sass/layout.scss */
-select, option, input[type="button"].button-primary {
+/* line 26, ../sass/layout.scss */
+select, option, input[type="button"].button-primary, input[type="submit"].button-primary {
   display: block;
   width: 100%;
 }
 
-/* line 35, ../sass/layout.scss */
-select:focus {
-  border-color: #CC1E2C;
+/* line 31, ../sass/layout.scss */
+input[type="reset"] {
+  position: absolute;
+  top: 126px;
+  right: 0%;
 }
 
 /* line 39, ../sass/layout.scss */
+select:focus {
+  border-color: #CC1E2C;
+}
+/* line 43, ../sass/layout.scss */
+select:disabled {
+  background-color: #B6B6B6;
+}
+
+/* line 48, ../sass/layout.scss */
 input[type="button"].button-primary {
   background-color: #CC1E2C;
   border-color: #731630;
+  white-space: normal;
+  height: auto;
+  line-height: 1.5em;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
-/* line 43, ../sass/layout.scss */
-input[type="button"].button-primary:hover {
+/* line 57, ../sass/layout.scss */
+input[type="button"].button-primary:hover, input[type="button"].button-primary:disabled {
   background-color: #731630;
   border-color: #40152A;
 }
 
-/* line 50, ../sass/layout.scss */
+/* line 64, ../sass/layout.scss */
 label {
   color: white;
 }
 
-/* line 54, ../sass/layout.scss */
+/* line 68, ../sass/layout.scss */
 .images {
   position: relative;
   height: auto;
   margin-bottom: 21px;
 }
-
-/* line 60, ../sass/layout.scss */
-img {
+/* line 75, ../sass/layout.scss */
+.images div img {
   max-width: 100%;
   display: block;
   margin: 0 auto;
@@ -60,19 +75,35 @@ img {
   position: relative;
   margin: 21px auto 0 25%;
 }
-/* line 67, ../sass/layout.scss */
-img:first-child {
+/* line 85, ../sass/layout.scss */
+.images div:first-child img {
   position: absolute;
   width: 100%;
   margin: 0 auto;
   max-height: 500px;
 }
+/* line 93, ../sass/layout.scss */
+.images div:nth-child(2) img {
+  margin-top: 10%;
+}
+/* line 97, ../sass/layout.scss */
+.images div:nth-child(n+3) img {
+  margin-left: 27%;
+}
+/* line 101, ../sass/layout.scss */
+.images div:not(:first-child).hover:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
 
-/* line 81, ../sass/layout.scss */
+/* line 113, ../sass/layout.scss */
 .select-wrapper {
   position: relative;
 }
-/* line 84, ../sass/layout.scss */
+/* line 116, ../sass/layout.scss */
 .select-wrapper:not(:last-child):after {
   content: "";
   background-image: url("../images/arrow.png");

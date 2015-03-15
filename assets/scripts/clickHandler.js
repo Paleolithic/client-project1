@@ -2,7 +2,7 @@
 var myHTTPrequest = getHTTPObject();
 var xmlDoc = handleHttpResponse();
 var dateForm = document.getElementById("dateform");
-createNextOptions("class", [ "commando", "siren", "gunzerker", "assassin" ]);
+createNextOptions("skill-class", [ "commando", "siren", "gunzerker", "assassin" ]);
 
 ///////// Create and get an http object (ajax)
 function getHTTPObject() {
@@ -56,20 +56,41 @@ function toTitleCase(str){
 // category, categoryTitle, options
 function createNextOptions(thisCategory, options, selection){
 	
-	//Creates new elements based on function parameters
+	var rowDiv;
+	// If row div doesn't exist, create it, set attributes and add to DOM
+	// Otherwise set it to via getElementById
+	// This is used to make a wrapper div with class "row" 
+	// for the Skeleton CSS grid framework
+	if(document.getElementById("form-row") == null){
+		
+		rowDiv = document.createElement("div");
+		rowDiv.id = "form-row";
+		rowDiv.setAttribute("class", "row");
+
+		dateForm.appendChild(rowDiv);
+	} else{
+		rowDiv = document.getElementById("form-row");
+	}
+
+	// Creates new div based on function parameters
 	var newDiv 	  = document.createElement("div");
-	newDiv.setAttribute("id", thisCategory);
+	// Sets attributes of div
+	newDiv.id = thisCategory;
 	newDiv.setAttribute("class", "select-wrapper three columns");
 
-	// if(selection != null){	newImg.setAttribute("src", "assets/images/" + selection + ".png"); }
-
+	// Creates new label based on function parameters
 	var newLabel  = document.createElement("label");
+	// Sets attributes of label
 	newLabel.setAttribute("for", "select_" + thisCategory);
 	newLabel.innerText = toTitleCase(thisCategory);
 
+	// Creates new select based on function parameters
 	var newSelect = document.createElement("select");
+	// Sets attributes of select
 	newSelect.id = thisCategory;
 
+	// For options parameters length, loop through and create a new option element
+	// Add that option element to the select
 	for (i = 0; i < options.length; i++){
 		var newOption = document.createElement("option");
 		newOption.value = options[i];
@@ -77,50 +98,72 @@ function createNextOptions(thisCategory, options, selection){
 		newSelect.appendChild(newOption);
 	}
 
+	// Create new input based on function parameters
 	var newInput = document.createElement("input");
+	// Sets attributes of input
 	newInput.type = "button";
 	newInput.value = "Choose " + toTitleCase(thisCategory);
 	newInput.setAttribute("class", "button-primary");
 
+	// Creates new image dom element
+	var newImgDiv = document.createElement("div");
+	var newImg = document.createElement("img");
+	// Sets attributes of image element
+	newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
+	
+	// Grab existing images div element
+	var imgDiv = document.getElementById("images");
 
-	// Add elements to DOM
-	// newDiv.appendChild(newImg);
+	// var newImgHoverDiv = document.createElement("div");
+	// newImgHoverDiv.setAttribute("class", "image-hover");
+	// newImgHoverDiv.width = "100px";
+	// newImgHoverDiv.height = "100px";
+
+
+	// Adds newly created elements to appropriate place in DOM
 	newDiv.appendChild(newLabel);
 	newDiv.appendChild(newSelect);
 	newDiv.appendChild(newInput);
-	dateForm.appendChild(newDiv);
+	rowDiv.appendChild(newDiv);
+	newImgDiv.appendChild(newImg);
+	imgDiv.appendChild(newImgDiv);
+	// imgDiv.appendChild(newImgHoverDiv);
 
-	var newImg = document.createElement("img");
-	newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
-	imgDiv = document.getElementById("images");
-	imgDiv.appendChild(newImg);
 
+	// Change event listener for select element
 	newSelect.addEventListener('change', function(){
+		// Reload image based on the selected option
 		newImg.setAttribute("src", "assets/images/" + newSelect.options[newSelect.selectedIndex].value + ".png");
 	}, false);
 
-	//Input on click listener
+	// On click listener for input element
 	newInput.addEventListener('click', function(){
+
+		//Sets attributes of the select and input button to disabled so they cannot be changed
 		newInput.setAttribute("disabled", true);
 		newSelect.setAttribute("disabled", true);
 
+		// Grab XML object
 		thisXMLObj = xmlDoc.getElementById(thisCategory);
 		
-		// Loop through the found XML object and look for the matching select element
-		// That matches the user selection
 		var selection = newSelect.options[newSelect.selectedIndex].value;
 		var thisXMLObjLength = thisXMLObj.children.length;
 		var nextXMLObj;
 		var nextCategory;
 		var cont = true;
+		
+		// Loop through the found XML object and 
 		for(var i = 0; i < thisXMLObjLength; i++ ){
+			// Look for the matching select element that matches the user selection
 			if(thisXMLObj.children[i].getAttribute("text") == selection){
+				
+				// If found, check if it's last elements
+				// If so set nextXMLObj variable and nextCategory variable
 				if(thisXMLObj.children[i].children.length > 0){
-					console.log("Inside if");
 					nextXMLObj = thisXMLObj.children[i].children[0];
 					nextCategory = nextXMLObj.getAttribute("id");
-					// console.log(nextXMLObj)
 				}
+				// Else set continue boolean to false and break loop
 				else{
 					cont = false;
 					break;
@@ -128,6 +171,8 @@ function createNextOptions(thisCategory, options, selection){
 			}
 		}
 
+		// If continue, set nextOptions array to be pushed as parameter
+		// and run createNextOptions function again
 		if(cont){
 			var nextOptions = [];
 			for (i = 0; i < nextXMLObj.children.length; i++){
@@ -136,15 +181,79 @@ function createNextOptions(thisCategory, options, selection){
 
 			createNextOptions(nextCategory, nextOptions, selection);			
 		}
+		// Else, there are no more options to be created and thus
+		// We should show the user the submit button
+		else{
+
+			// Create end div and set attributes
+			var endDiv = document.createElement("div");
+			endDiv.setAttribute("class", "twelve columns");
+			
+			// Create submit input element and set attributes
+			var endInput = document.createElement("input");
+			endInput.type = "submit";
+			endInput.id = "submit"
+			endInput.setAttribute("class", "button-primary");
+
+			// Append newly created elements to their appropriate place in the DOM
+			endDiv.appendChild(endInput);
+			dateForm.appendChild(endDiv); 
+		}
 	}, false); 
+
+	newImg.addEventListener('mouseover', function(){
+		console.log("You are now hovering!");
+		newImgDiv.classList.toggle("hover");
+	}, false);
+
 }
 
+// On successful window load, run function
 window.onload = function(){
+
+	// Grab images holder div from id
 	var imagesHolder = document.getElementById("images");
-	imagesHolder.style.height = imagesHolder.children[0].height + "px";
+
+	// Set height of images holder div to the height of its first child, which will be the tallest
+	imagesHolder.style.height = imagesHolder.children[0].children[0].height + "px";
+
+
+	var resetButton = document.getElementById("reset");
+	resetButton.addEventListener('click', function(){
+		console.log("Clicked");
+		// console.log(dateForm.children[1].children);
+		for(i = dateForm.children[1].children.length - 1; i > 0; i--){
+			console.log(dateForm.children[1].children[i]);
+		    dateForm.children[1].removeChild(dateForm.children[1].children[i]);
+		}
+
+		var submitButton = document.getElementById("submit");
+		if(submitButton != null){
+			console.log(submitButton.parentNode);
+			submitButton.parentNode.parentNode.removeChild(submitButton.parentNode);			
+		}
+
+		var classDiv = document.getElementById("skill-class");
+		classDiv.children[1].removeAttribute("disabled");
+		classDiv.children[2].removeAttribute("disabled");
+		var firstOption = classDiv.children[1].children[0].value;
+		classDiv.children[1].value = firstOption;
+
+		var imgDiv = document.getElementById("images");
+		console.log(imgDiv.children);
+		for(i = imgDiv.children.length - 1; i > 0; i--){
+			imgDiv.removeChild(imgDiv.children[i]);
+		}
+		console.log(imgDiv.children);
+		imgDiv.children[0].children[0].setAttribute("src", "assets/images/" + firstOption + ".png");
+	}, false);
 }
 
 window.onresize = function(){
+
+	// Grab images holder div from id
 	var imagesHolder = document.getElementById("images");
-	imagesHolder.style.height = imagesHolder.children[0].height + "px";
+
+	// Set height of images holder div to the height of its first child, which will be the tallest
+	imagesHolder.style.height = imagesHolder.children[0].children[0].height + "px";
 }

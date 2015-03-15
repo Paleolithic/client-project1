@@ -23,24 +23,38 @@ h1{
 
 }
 
-select{
-	// margin-right: 7px;
-}
-
-select, option, input[type="button"].button-primary{
+select, option, input[type="button"].button-primary, input[type="submit"].button-primary{
 	display: block;
 	width: 100%;
 }
 
-select:focus{
-	border-color: #CC1E2C;
+input[type="reset"]{
+	position: absolute;
+	top: 126px;
+	right: 0%;
+}
+
+select{
+
+	&:focus{
+		border-color: #CC1E2C;
+	}
+
+	&:disabled{
+		background-color: #B6B6B6; 
+	}
 }
 
 input[type="button"].button-primary{
 	background-color: #CC1E2C;
 	border-color:  #731630;
+	white-space: normal;
+	height: auto;
+	line-height: 1.5em;
+	padding-top: 14px;
+	padding-bottom: 14px;
 
-	&:hover{
+	&:hover, &:disabled{
 		background-color: #731630;
 		border-color: #40152A;
 
@@ -55,28 +69,46 @@ label{
 	position: relative;
 	height: auto;
 	margin-bottom: 21px;
-}
+	
+	div{
 
-img{
-	max-width: 100%;
-	display: block;
-	margin: 0 auto;
-	height: auto;
-	max-height: 500px;
+		img{
+			max-width: 100%;
+			display: block;
+			margin: 0 auto;
+			height: auto;
+			max-height: 500px;
+			position: relative;
+			margin: 21px auto 0 25%;		
+		}
 
-	&:first-child{
-		position: absolute;
-		width: 100%;
-		margin: 0 auto;
-		max-height: 500px;
-		// height: 400px;
+		&:first-child img{
+			position: absolute;
+			width: 100%;
+			margin: 0 auto;
+			max-height: 500px;
+			// height: 400px;
+		}
+
+		&:nth-child(2) img{
+			margin-top: 10%;
+		}
+
+		&:nth-child(n+3) img{
+			margin-left: 27%;
+		}
+
+		&:not(:first-child).hover:after{
+			content: "";
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: white;
+			// @include border-radius(4px);
+		}
 	}
-
-	// &:nth-child(2){
-		position: relative;
-		margin: 21px auto 0 25%;
-	// }
 }
+
 
 .select-wrapper{
 	position: relative;
@@ -97,6 +129,8 @@ img{
 }
 
 /* Larger than tablet */
-@media (max-width: 750px) {
-
+@media (max-width: 800px) {
+	label{
+		// font-size: 12px;
+	}
 }
